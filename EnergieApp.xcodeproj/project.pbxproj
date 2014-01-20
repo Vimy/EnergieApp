@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		392348DA188D93BF002F179B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392348D9188D93BF002F179B /* Foundation.framework */; };
+		392348DC188D93BF002F179B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392348DB188D93BF002F179B /* CoreGraphics.framework */; };
+		392348DE188D93BF002F179B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392348DD188D93BF002F179B /* UIKit.framework */; };
+		392348E4188D93BF002F179B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 392348E2188D93BF002F179B /* InfoPlist.strings */; };
+		392348E6188D93BF002F179B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 392348E5188D93BF002F179B /* main.m */; };
+		392348EA188D93BF002F179B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 392348E9188D93BF002F179B /* AppDelegate.m */; };
+		392348ED188D93BF002F179B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392348EB188D93BF002F179B /* Main.storyboard */; };
+		392348F0188D93BF002F179B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392348EF188D93BF002F179B /* ViewController.m */; };
+		392348F2188D93BF002F179B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392348F1188D93BF002F179B /* Images.xcassets */; };
+		392348F9188D93BF002F179B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392348F8188D93BF002F179B /* XCTest.framework */; };
+		392348FA188D93BF002F179B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392348D9188D93BF002F179B /* Foundation.framework */; };
+		392348FB188D93BF002F179B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392348DD188D93BF002F179B /* UIKit.framework */; };
+		39234903188D93BF002F179B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39234901188D93BF002F179B /* InfoPlist.strings */; };
+		39234905188D93BF002F179B /* EnergieAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39234904188D93BF002F179B /* EnergieAppTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		392348FC188D93BF002F179B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 392348CE188D93BF002F179B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 392348D5188D93BF002F179B;
+			remoteInfo = EnergieApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		392348D6188D93BF002F179B /* EnergieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnergieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		392348D9188D93BF002F179B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		392348DB188D93BF002F179B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		392348DD188D93BF002F179B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		392348E1188D93BF002F179B /* EnergieApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EnergieApp-Info.plist"; sourceTree = "<group>"; };
+		392348E3188D93BF002F179B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		392348E5188D93BF002F179B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		392348E7188D93BF002F179B /* EnergieApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EnergieApp-Prefix.pch"; sourceTree = "<group>"; };
+		392348E8188D93BF002F179B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		392348E9188D93BF002F179B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		392348EC188D93BF002F179B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		392348EE188D93BF002F179B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		392348EF188D93BF002F179B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		392348F1188D93BF002F179B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		392348F7188D93BF002F179B /* EnergieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnergieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		392348F8188D93BF002F179B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		39234900188D93BF002F179B /* EnergieAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EnergieAppTests-Info.plist"; sourceTree = "<group>"; };
+		39234902188D93BF002F179B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		39234904188D93BF002F179B /* EnergieAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnergieAppTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		392348D3188D93BF002F179B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				392348DC188D93BF002F179B /* CoreGraphics.framework in Frameworks */,
+				392348DE188D93BF002F179B /* UIKit.framework in Frameworks */,
+				392348DA188D93BF002F179B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		392348F4188D93BF002F179B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				392348F9188D93BF002F179B /* XCTest.framework in Frameworks */,
+				392348FB188D93BF002F179B /* UIKit.framework in Frameworks */,
+				392348FA188D93BF002F179B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		392348CD188D93BF002F179B = {
+			isa = PBXGroup;
+			children = (
+				392348DF188D93BF002F179B /* EnergieApp */,
+				392348FE188D93BF002F179B /* EnergieAppTests */,
+				392348D8188D93BF002F179B /* Frameworks */,
+				392348D7188D93BF002F179B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		392348D7188D93BF002F179B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				392348D6188D93BF002F179B /* EnergieApp.app */,
+				392348F7188D93BF002F179B /* EnergieAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		392348D8188D93BF002F179B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				392348D9188D93BF002F179B /* Foundation.framework */,
+				392348DB188D93BF002F179B /* CoreGraphics.framework */,
+				392348DD188D93BF002F179B /* UIKit.framework */,
+				392348F8188D93BF002F179B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		392348DF188D93BF002F179B /* EnergieApp */ = {
+			isa = PBXGroup;
+			children = (
+				392348E8188D93BF002F179B /* AppDelegate.h */,
+				392348E9188D93BF002F179B /* AppDelegate.m */,
+				392348EB188D93BF002F179B /* Main.storyboard */,
+				392348EE188D93BF002F179B /* ViewController.h */,
+				392348EF188D93BF002F179B /* ViewController.m */,
+				392348F1188D93BF002F179B /* Images.xcassets */,
+				392348E0188D93BF002F179B /* Supporting Files */,
+			);
+			path = EnergieApp;
+			sourceTree = "<group>";
+		};
+		392348E0188D93BF002F179B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				392348E1188D93BF002F179B /* EnergieApp-Info.plist */,
+				392348E2188D93BF002F179B /* InfoPlist.strings */,
+				392348E5188D93BF002F179B /* main.m */,
+				392348E7188D93BF002F179B /* EnergieApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		392348FE188D93BF002F179B /* EnergieAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				39234904188D93BF002F179B /* EnergieAppTests.m */,
+				392348FF188D93BF002F179B /* Supporting Files */,
+			);
+			path = EnergieAppTests;
+			sourceTree = "<group>";
+		};
+		392348FF188D93BF002F179B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				39234900188D93BF002F179B /* EnergieAppTests-Info.plist */,
+				39234901188D93BF002F179B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		392348D5188D93BF002F179B /* EnergieApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39234908188D93BF002F179B /* Build configuration list for PBXNativeTarget "EnergieApp" */;
+			buildPhases = (
+				392348D2188D93BF002F179B /* Sources */,
+				392348D3188D93BF002F179B /* Frameworks */,
+				392348D4188D93BF002F179B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EnergieApp;
+			productName = EnergieApp;
+			productReference = 392348D6188D93BF002F179B /* EnergieApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		392348F6188D93BF002F179B /* EnergieAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3923490B188D93BF002F179B /* Build configuration list for PBXNativeTarget "EnergieAppTests" */;
+			buildPhases = (
+				392348F3188D93BF002F179B /* Sources */,
+				392348F4188D93BF002F179B /* Frameworks */,
+				392348F5188D93BF002F179B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				392348FD188D93BF002F179B /* PBXTargetDependency */,
+			);
+			name = EnergieAppTests;
+			productName = EnergieAppTests;
+			productReference = 392348F7188D93BF002F179B /* EnergieAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		392348CE188D93BF002F179B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Noizy;
+				TargetAttributes = {
+					392348F6188D93BF002F179B = {
+						TestTargetID = 392348D5188D93BF002F179B;
+					};
+				};
+			};
+			buildConfigurationList = 392348D1188D93BF002F179B /* Build configuration list for PBXProject "EnergieApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 392348CD188D93BF002F179B;
+			productRefGroup = 392348D7188D93BF002F179B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				392348D5188D93BF002F179B /* EnergieApp */,
+				392348F6188D93BF002F179B /* EnergieAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		392348D4188D93BF002F179B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				392348F2188D93BF002F179B /* Images.xcassets in Resources */,
+				392348E4188D93BF002F179B /* InfoPlist.strings in Resources */,
+				392348ED188D93BF002F179B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		392348F5188D93BF002F179B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39234903188D93BF002F179B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		392348D2188D93BF002F179B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				392348F0188D93BF002F179B /* ViewController.m in Sources */,
+				392348EA188D93BF002F179B /* AppDelegate.m in Sources */,
+				392348E6188D93BF002F179B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		392348F3188D93BF002F179B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39234905188D93BF002F179B /* EnergieAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		392348FD188D93BF002F179B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 392348D5188D93BF002F179B /* EnergieApp */;
+			targetProxy = 392348FC188D93BF002F179B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		392348E2188D93BF002F179B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				392348E3188D93BF002F179B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		392348EB188D93BF002F179B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				392348EC188D93BF002F179B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		39234901188D93BF002F179B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39234902188D93BF002F179B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39234906188D93BF002F179B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		39234907188D93BF002F179B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39234909188D93BF002F179B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EnergieApp/EnergieApp-Prefix.pch";
+				INFOPLIST_FILE = "EnergieApp/EnergieApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3923490A188D93BF002F179B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EnergieApp/EnergieApp-Prefix.pch";
+				INFOPLIST_FILE = "EnergieApp/EnergieApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3923490C188D93BF002F179B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EnergieApp.app/EnergieApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EnergieApp/EnergieApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "EnergieAppTests/EnergieAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3923490D188D93BF002F179B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EnergieApp.app/EnergieApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EnergieApp/EnergieApp-Prefix.pch";
+				INFOPLIST_FILE = "EnergieAppTests/EnergieAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		392348D1188D93BF002F179B /* Build configuration list for PBXProject "EnergieApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39234906188D93BF002F179B /* Debug */,
+				39234907188D93BF002F179B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39234908188D93BF002F179B /* Build configuration list for PBXNativeTarget "EnergieApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39234909188D93BF002F179B /* Debug */,
+				3923490A188D93BF002F179B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3923490B188D93BF002F179B /* Build configuration list for PBXNativeTarget "EnergieAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3923490C188D93BF002F179B /* Debug */,
+				3923490D188D93BF002F179B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 392348CE188D93BF002F179B /* Project object */;
+}
