@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ChartViewController.h
 //  ChartTest
 //
 //  Created by Matthias Vermeulen on 2/02/14.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ChartViewController : UIViewController
+@property NSArray *chartData;
+@property NSArray *chartHourLabels;
 
 @end

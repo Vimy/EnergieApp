@@ -9,6 +9,7 @@
 #import "EnergyStatsViewController.h"
 #import "Energie.h"
 #import "DataAccessLayer.h"
+#import "ChartViewController.h"
 
 
 @interface EnergyStatsViewController ()
@@ -19,7 +20,8 @@
 @property (nonatomic, strong) NSMutableArray *energyCollection;
 @property (nonatomic, strong) NSMutableArray *energyPhysicalEnergy;
 @property (nonatomic, strong) NSArray *energyWeekDaySorted;
-
+@property (nonatomic, strong) NSDateFormatter *fmt;
+@property (nonatomic, strong) NSDateFormatter *weekDayStringFormatter;
 @end
 
 @implementation EnergyStatsViewController
@@ -45,6 +47,11 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     DataAccessLayer *accesLayer = [[DataAccessLayer alloc]init];
     self.managedObjectContext = [accesLayer managedObjectContext];
+    self.fmt = [[NSDateFormatter alloc] init];
+    [self.fmt setDateFormat:@"dd-MM-yyyy"]; //aanpassen voor lokaal gebruik
+    
+    self.weekDayStringFormatter = [[NSDateFormatter alloc]init];
+    [self.weekDayStringFormatter setDateFormat:@"eeee"];
     
     [self fetchData];
     [self.tableView reloadData];
@@ -156,11 +163,20 @@
 {
     static NSString *CellIdentifier = @"EnergyHistoryCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+    NSDate *weekDate = [self.energyWeekDaySorted objectAtIndex:indexPath.row];
   
-  
-    
+    NSString *dateString = [self.fmt stringFromDate:weekDate];
+
+    //NSArray *daysOfWeek = @[@"",@"Sunday",@"Monday",@"Tuesday",@"Wednesday",@"Thursday",@"Friday",@"Saturday"];
+    NSInteger weekdayNumber = (NSInteger)[[self.fmt stringFromDate:weekDate] integerValue];
+    NSLog(@"WeekdayNumber: %i", weekdayNumber);
+
     UILabel *weekDayLabel = (UILabel *)[cell viewWithTag:103];
-    weekDayLabel.text = [NSString stringWithFormat:@"%@ ",[self.energyWeekDaySorted objectAtIndex:indexPath.row]];
+    weekDayLabel.text = [self.weekDayStringFormatter stringFromDate:weekDate];
+    
+    UILabel *datumLabel = (UILabel *) [cell viewWithTag:110];
+    datumLabel.text = dateString;
     
     UIImageView *graphSegueIcon = (UIImageView *) [cell viewWithTag:104];
     graphSegueIcon.image = [UIImage imageNamed:@"Chart_Up@2x.png"];
@@ -208,17 +224,62 @@
     return YES;
 }
 */
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareChartViewController:(ChartViewController *)cvc toDisplayChart:(NSArray *)chartData withHourLabels:(NSArray *)labelData
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    cvc.chartData = chartData;
+    cvc.chartHourLabels = labelData;
 }
 
- */
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ if([sender isKindOfClass:[UITableViewCell class]])
+ {
+     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+     if (indexPath)
+     {
+         if ([segue.identifier isEqualToString:@"Energy in detail"])
+         {
+             if ([segue.destinationViewController isKindOfClass:[ChartViewController class]])
+             {
+                 NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+                 [formatter setDateFormat:@"HH"];
+                 
+                 NSMutableArray *data = [[NSMutableArray alloc]init];
+                 NSMutableArray *labelData = [[NSMutableArray alloc]init];
+                 NSDate *date = [self.energyWeekDaySorted objectAtIndex:indexPath.row];
+                 NSArray *test = [self.energyHistoryDict objectForKey:date];
+                 NSLog(@"Test array is: %@", test);
+                for (Energie *energie in test)
+                {
+                    [data addObject:energie.mentalEnergy];
+                    
+                    [labelData addObject:[formatter stringFromDate:energie.timeOfEntry]];
+                    
+                    
+                    
+                }
+                 
+                 [self prepareChartViewController:segue.destinationViewController toDisplayChart:data withHourLabels:labelData];
+                
+          //       [self prepareChartViewController:segue.destinationViewController toDisplayChart:
+             }
+             
+         }
+         
+         
+         
+     }
+     
+ }
+
+}
+
+
 
 @end

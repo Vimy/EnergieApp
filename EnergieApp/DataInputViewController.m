@@ -38,7 +38,10 @@
     self.managedObjectContext = [accesLayer managedObjectContext];
   //  self.view.backgroundColor = UIColorFromRGB(0xC0272A);
     //  self.managedObjectContext = [appDelegate managedObjectContext];
-    
+    self.energyLevelSlider.value = 6;
+    self.mentalEnergyLevelSlider.value = 6;
+    self.physicalEnergyValueLabel.text = @"Redelijk";
+    self.mentalEnergyValueLabel.text = @"Redelijk";
 }
 
 
@@ -118,30 +121,19 @@
     // Get the Gregorian calendar
     
     NSCalendar *cal = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    
-   
     NSDate* now = [NSDate date];
-   
-  
     self.timeOfEntry = now;
-    
-    
-    
-    
+ 
     NSDateComponents *components = [cal components:NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit   fromDate:now];
-    
     NSLog(@"Year: %d", [components year]);
     NSLog(@"Month: %d", [components month]);
     NSLog(@"Day: %d", [components day]);
-     NSLog(@"Hour: %d:%d", [components hour], [components minute]);
-    
-    
-    
+    NSLog(@"Hour: %d:%d", [components hour], [components minute]);
+
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     [fmt setDateFormat:@"dd-MM-yyyy"];
     NSString *stringOut = [fmt stringFromDate:now];
     NSLog(@"Datum: %@", stringOut);
-    
     
     //--------------------------------------------------
     
@@ -152,11 +144,13 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     Energie *energieData = [NSEntityDescription insertNewObjectForEntityForName:@"Energie" inManagedObjectContext:self.managedObjectContext];
     energieData.timeOfEntry = self.timeOfEntry;
+    //energieData.hourOfEntry =
     energieData.physicalEnergy = physical;
     energieData.mentalEnergy = mental;
     
     NSError *error;
-    if (![context save:&error]) {
+    if (![context save:&error])
+    {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
  

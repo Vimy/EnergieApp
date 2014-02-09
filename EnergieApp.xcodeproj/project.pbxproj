@@ -19,7 +19,7 @@
 		392348FB188D93BF002F179B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392348DD188D93BF002F179B /* UIKit.framework */; };
 		39234903188D93BF002F179B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39234901188D93BF002F179B /* InfoPlist.strings */; };
 		39234905188D93BF002F179B /* EnergieAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39234904188D93BF002F179B /* EnergieAppTests.m */; };
-		3985EB5C189EA05D00997D8C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985EB5B189EA05D00997D8C /* ViewController.m */; };
+		3985EB5C189EA05D00997D8C /* ChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985EB5B189EA05D00997D8C /* ChartViewController.m */; };
 		3985EB73189EA07B00997D8C /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985EB5F189EA07B00997D8C /* PNBar.m */; };
 		3985EB74189EA07B00997D8C /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985EB61189EA07B00997D8C /* PNBarChart.m */; };
 		3985EB75189EA07B00997D8C /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985EB65189EA07B00997D8C /* PNChartLabel.m */; };
@@ -84,8 +84,8 @@
 		39234900188D93BF002F179B /* EnergieAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EnergieAppTests-Info.plist"; sourceTree = "<group>"; };
 		39234902188D93BF002F179B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		39234904188D93BF002F179B /* EnergieAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EnergieAppTests.m; sourceTree = "<group>"; };
-		3985EB5A189EA05D00997D8C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3985EB5B189EA05D00997D8C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3985EB5A189EA05D00997D8C /* ChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartViewController.h; sourceTree = "<group>"; };
+		3985EB5B189EA05D00997D8C /* ChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartViewController.m; sourceTree = "<group>"; };
 		3985EB5E189EA07B00997D8C /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
 		3985EB5F189EA07B00997D8C /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
 		3985EB60189EA07B00997D8C /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
@@ -304,8 +304,8 @@
 		39C0B2941896AD510042419B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3985EB5A189EA05D00997D8C /* ViewController.h */,
-				3985EB5B189EA05D00997D8C /* ViewController.m */,
+				3985EB5A189EA05D00997D8C /* ChartViewController.h */,
+				3985EB5B189EA05D00997D8C /* ChartViewController.m */,
 				39C0B2AF189C3D990042419B /* EnergyStatsViewController.h */,
 				39C0B2B0189C3D990042419B /* EnergyStatsViewController.m */,
 				39C0B291189695CA0042419B /* SettingsViewController.h */,
@@ -458,7 +458,7 @@
 				39C0B2B1189C3D990042419B /* EnergyStatsViewController.m in Sources */,
 				3985EB9418A6A56B00997D8C /* Energie.m in Sources */,
 				39C0B2901892F17C0042419B /* DataInputViewController.m in Sources */,
-				3985EB5C189EA05D00997D8C /* ViewController.m in Sources */,
+				3985EB5C189EA05D00997D8C /* ChartViewController.m in Sources */,
 				39C0B293189695CA0042419B /* SettingsViewController.m in Sources */,
 				3985EB75189EA07B00997D8C /* PNChartLabel.m in Sources */,
 				3985EB74189EA07B00997D8C /* PNBarChart.m in Sources */,
