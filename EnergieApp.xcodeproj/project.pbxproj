@@ -94,7 +94,6 @@
 		3985EB63189EA07B00997D8C /* PNChartDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartDelegate.h; sourceTree = "<group>"; };
 		3985EB64189EA07B00997D8C /* PNChartLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartLabel.h; sourceTree = "<group>"; };
 		3985EB65189EA07B00997D8C /* PNChartLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNChartLabel.m; sourceTree = "<group>"; };
-		3985EB66189EA07B00997D8C /* PNCircleChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNCircleChart.h; sourceTree = "<group>"; };
 		3985EB67189EA07B00997D8C /* PNCircleChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNCircleChart.m; sourceTree = "<group>"; };
 		3985EB68189EA07B00997D8C /* PNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNColor.h; sourceTree = "<group>"; };
 		3985EB69189EA07B00997D8C /* PNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNColor.m; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		3985EB8C189EF57E00997D8C /* Add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add@2x.png"; sourceTree = "<group>"; };
 		3985EB9218A6A56B00997D8C /* Energie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Energie.h; sourceTree = "<group>"; };
 		3985EB9318A6A56B00997D8C /* Energie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Energie.m; sourceTree = "<group>"; };
+		3985EB9818A7F1AA00997D8C /* PNCircleChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PNCircleChart.h; sourceTree = "<group>"; };
 		39C0B28E1892F17C0042419B /* DataInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataInputViewController.h; sourceTree = "<group>"; };
 		39C0B28F1892F17C0042419B /* DataInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataInputViewController.m; sourceTree = "<group>"; };
 		39C0B291189695CA0042419B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 				3985EB63189EA07B00997D8C /* PNChartDelegate.h */,
 				3985EB64189EA07B00997D8C /* PNChartLabel.h */,
 				3985EB65189EA07B00997D8C /* PNChartLabel.m */,
-				3985EB66189EA07B00997D8C /* PNCircleChart.h */,
+				3985EB9818A7F1AA00997D8C /* PNCircleChart.h */,
 				3985EB67189EA07B00997D8C /* PNCircleChart.m */,
 				3985EB68189EA07B00997D8C /* PNColor.h */,
 				3985EB69189EA07B00997D8C /* PNColor.m */,

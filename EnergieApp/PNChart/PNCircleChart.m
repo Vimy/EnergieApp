@@ -9,8 +9,11 @@
 #import "PNCircleChart.h"
 #import "UICountingLabel.h"
 
-@interface PNCircleChart () {
+@interface PNCircleChart ()
+{
     UICountingLabel *_gradeLabel;
+
+
 }
 
 @end

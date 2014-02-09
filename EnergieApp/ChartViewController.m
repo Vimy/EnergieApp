@@ -18,7 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+ 
     
     PNLineChart *lineChart = [[PNLineChart alloc]initWithFrame:CGRectMake(0, 135.0, SCREEN_WIDTH, 200.0)];
    // [lineChart setXLabels:@[@"10u",@"11u",@"12u",@"13u",@"14u",@"15u",@"16u",@"17u" ]];

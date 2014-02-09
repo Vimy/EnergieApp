@@ -10,7 +10,7 @@
 #import "Energie.h"
 #import "DataAccessLayer.h"
 #import "ChartViewController.h"
-
+#import "PNChart.h"
 
 @interface EnergyStatsViewController ()
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
@@ -163,6 +163,10 @@
 {
     static NSString *CellIdentifier = @"EnergyHistoryCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+   
+  
+    
+    
 
     NSDate *weekDate = [self.energyWeekDaySorted objectAtIndex:indexPath.row];
   
@@ -181,8 +185,51 @@
     UIImageView *graphSegueIcon = (UIImageView *) [cell viewWithTag:104];
     graphSegueIcon.image = [UIImage imageNamed:@"Chart_Up@2x.png"];
     
-    UIImageView *circleIcon = (UIImageView *) [cell viewWithTag:105];
-    circleIcon.image = [UIImage imageNamed:@"cirkel.png"];
+   // UIImageView *circleIcon = (UIImageView *) [cell viewWithTag:105];
+    //circleIcon.image = [UIImage imageNamed:@"cirkel.png"];
+    
+    
+    
+    
+    CGRect frameCircleSubView = CGRectMake(0, 0, 36, 44);
+    UIView *circleSubView = [[UIView alloc]initWithFrame:frameCircleSubView];
+    //circleSubView.backgroundColor = [UIColor redColor];
+     NSMutableArray *data = [[NSMutableArray alloc]init];
+    NSDate *date = [self.energyWeekDaySorted objectAtIndex:indexPath.row];
+    NSArray *test = [self.energyHistoryDict objectForKey:date];
+    NSLog(@"Test array is: %@", test);
+    for (Energie *energie in test)
+    {
+        [data addObject:energie.mentalEnergy];
+    }
+    
+    NSNumber *average = [data valueForKeyPath:@"@avg.self"];
+
+    
+    PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(5, 2, 36, 36) andTotal:[NSNumber numberWithInt:10] andCurrent:average];
+    circleChart.backgroundColor = [UIColor clearColor];
+    [circleChart setLineWidth:[NSNumber numberWithInt:4]];
+    [circleChart setStrokeColor:PNGreen];
+    if ([average intValue] >= 5 )
+    {
+        [circleChart setStrokeColor:PNGreen];
+        
+    }
+    else if ([average intValue] >= 4 )
+    {
+        [circleChart setStrokeColor:PNYellow];
+    }
+    else if ([average intValue] >= 1 )
+    {
+        [circleChart setStrokeColor:PNRed];
+    }
+    
+    [circleChart strokeChart];
+    [circleSubView addSubview:circleChart];
+    
+    
+     [cell addSubview:circleSubView];
+    
     return cell;
 }
 
@@ -224,10 +271,12 @@
     return YES;
 }
 */
-- (void)prepareChartViewController:(ChartViewController *)cvc toDisplayChart:(NSArray *)chartData withHourLabels:(NSArray *)labelData
+- (void)prepareChartViewController:(ChartViewController *)cvc toDisplayChart:(NSArray *)chartData withHourLabels:(NSArray *)labelData andTitle:(NSString *)title
 {
     cvc.chartData = chartData;
     cvc.chartHourLabels = labelData;
+    cvc.title = title;
+    
 }
 
 
@@ -259,13 +308,18 @@
                 {
                     [data addObject:energie.mentalEnergy];
                     
-                    [labelData addObject:[formatter stringFromDate:energie.timeOfEntry]];
-                    
-                    
-                    
+                    [labelData addObject:[formatter stringFromDate:energie.timeOfEntry]];    
                 }
+                 NSDate *weekDate = [self.energyWeekDaySorted objectAtIndex:indexPath.row];
                  
-                 [self prepareChartViewController:segue.destinationViewController toDisplayChart:data withHourLabels:labelData];
+                 
+                 NSInteger weekdayNumber = (NSInteger)[[self.fmt stringFromDate:weekDate] integerValue];
+                 NSLog(@"WeekdayNumber: %i", weekdayNumber);
+                 
+                 NSString *title = [self.weekDayStringFormatter stringFromDate:weekDate];
+                 
+                 
+                 [self prepareChartViewController:segue.destinationViewController toDisplayChart:data withHourLabels:labelData andTitle:title];
                 
           //       [self prepareChartViewController:segue.destinationViewController toDisplayChart:
              }
