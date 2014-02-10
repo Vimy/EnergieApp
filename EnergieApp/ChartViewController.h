@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ChartViewController : UIViewController
-@property NSArray *chartData;
+@property NSArray *chartDataMentalEnergy;
 @property NSArray *chartHourLabels;
-
+@property NSArray *chartDataFysicalEnergy;
 @end

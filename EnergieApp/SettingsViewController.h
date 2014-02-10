@@ -11,7 +11,4 @@
 
 @interface SettingsViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIPickerView *notificationsIntervalPicker;
-
-
-
 @end

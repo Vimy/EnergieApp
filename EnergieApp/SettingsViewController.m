@@ -20,20 +20,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	_intervalArray  = @[@"Every 30 min", @"Every hour", @"Every two hours"];
+	_intervalArray  = @[@"Every hour", @"Every two hours"];
 }
 
 - (IBAction)savePrefs:(UIButton *)sender
 {
 
     UILocalNotification *localNotification = [[UILocalNotification alloc]init];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:self.pickerValue];
-    localNotification.alertBody = @"Hoi";
-    localNotification.alertAction = @"Time for your daily input";
+  //  localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:self.pickerValue];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:15];
+    localNotification.alertBody = @"Energie App";
+    localNotification.alertAction = @"How are you feeling now?";
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     localNotification.applicationIconBadgeNumber +=1;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    localNotification.repeatInterval = NSHourCalendarUnit;
+    localNotification.repeatInterval = NSMinuteCalendarUnit;
     
     
     ////////////

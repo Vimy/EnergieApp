@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-
+#import "DataInputViewController.h"
 @implementation AppDelegate
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -7,17 +7,25 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    
-    if (localNotification)
-    {
+        UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    NSLog(@"%@", localNotification);
+ if    (localNotification)
+ {
         application.applicationIconBadgeNumber = 0;
-    }
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        DataInputViewController *inputViewController = (DataInputViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"input"];
+        [self.window addSubview:inputViewController.view];
+        [self.window makeKeyAndVisible];
+        NSLog(@"Tet;");
+  
+     
+}
     
+
     
     [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xC0272A)];
     //[[UITabBar appearance] setBarTintColor:UIColorFromRGB(0x1EB6BC)];
-    self.window.tintColor = 	[UIColor whiteColor];
+   // self.window.tintColor = 	[UIColor whiteColor];
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xC0272A)];
     //[[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x1EB6BC)];
     
@@ -27,7 +35,9 @@
                                 [UIFont fontWithName:@"HelveticaNeue-Medium" size:14], NSFontAttributeName,
                                 [UIColor whiteColor], NSForegroundColorAttributeName, nil];
     
-    [[UINavigationBar appearance] setTitleTextAttributes:attributes];    return YES;
+    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
+    
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -49,7 +59,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

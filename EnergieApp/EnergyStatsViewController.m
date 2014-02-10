@@ -271,9 +271,10 @@
     return YES;
 }
 */
-- (void)prepareChartViewController:(ChartViewController *)cvc toDisplayChart:(NSArray *)chartData withHourLabels:(NSArray *)labelData andTitle:(NSString *)title
+- (void)prepareChartViewController:(ChartViewController *)cvc toDisplayMentalChart:(NSArray *)chartDataMentalEnergy andFysicalChart:(NSArray *)chartDataFysicalEnergy withHourLabels:(NSArray *)labelData andTitle:(NSString *)title
 {
-    cvc.chartData = chartData;
+    cvc.chartDataMentalEnergy = chartDataMentalEnergy;
+    cvc.chartDataFysicalEnergy = chartDataFysicalEnergy;
     cvc.chartHourLabels = labelData;
     cvc.title = title;
     
@@ -300,6 +301,8 @@
                  [formatter setDateFormat:@"HH"];
                  
                  NSMutableArray *data = [[NSMutableArray alloc]init];
+                 NSMutableArray *dataPhysical = [[NSMutableArray alloc]init];
+
                  NSMutableArray *labelData = [[NSMutableArray alloc]init];
                  NSDate *date = [self.energyWeekDaySorted objectAtIndex:indexPath.row];
                  NSArray *test = [self.energyHistoryDict objectForKey:date];
@@ -307,7 +310,8 @@
                 for (Energie *energie in test)
                 {
                     [data addObject:energie.mentalEnergy];
-                    
+                    [dataPhysical addObject:energie.focusLevel];
+                    //[dataPhysical addObject:energie.physicalEnergy];
                     [labelData addObject:[formatter stringFromDate:energie.timeOfEntry]];    
                 }
                  NSDate *weekDate = [self.energyWeekDaySorted objectAtIndex:indexPath.row];
@@ -317,9 +321,9 @@
                  NSLog(@"WeekdayNumber: %i", weekdayNumber);
                  
                  NSString *title = [self.weekDayStringFormatter stringFromDate:weekDate];
+                 [self prepareChartViewController:segue.destinationViewController toDisplayMentalChart:data andFysicalChart:dataPhysical withHourLabels:labelData andTitle:title];
                  
-                 
-                 [self prepareChartViewController:segue.destinationViewController toDisplayChart:data withHourLabels:labelData andTitle:title];
+            
                 
           //       [self prepareChartViewController:segue.destinationViewController toDisplayChart:
              }

@@ -37,7 +37,7 @@
 		3985EB89189EEF7D00997D8C /* Contact@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3985EB88189EEF7D00997D8C /* Contact@2x.png */; };
 		3985EB8B189EEFCA00997D8C /* More@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3985EB8A189EEFCA00997D8C /* More@2x.png */; };
 		3985EB8D189EF57E00997D8C /* Add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3985EB8C189EF57E00997D8C /* Add@2x.png */; };
-		3985EB9418A6A56B00997D8C /* Energie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985EB9318A6A56B00997D8C /* Energie.m */; };
+		3985EC0118A99BDB00997D8C /* Energie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985EC0018A99BDB00997D8C /* Energie.m */; };
 		39C0B2901892F17C0042419B /* DataInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C0B28F1892F17C0042419B /* DataInputViewController.m */; };
 		39C0B293189695CA0042419B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C0B292189695CA0042419B /* SettingsViewController.m */; };
 		39C0B2A4189971C40042419B /* EnergieData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39C0B2A2189971C40042419B /* EnergieData.xcdatamodeld */; };
@@ -113,9 +113,9 @@
 		3985EB88189EEF7D00997D8C /* Contact@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Contact@2x.png"; sourceTree = "<group>"; };
 		3985EB8A189EEFCA00997D8C /* More@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "More@2x.png"; sourceTree = "<group>"; };
 		3985EB8C189EF57E00997D8C /* Add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add@2x.png"; sourceTree = "<group>"; };
-		3985EB9218A6A56B00997D8C /* Energie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Energie.h; sourceTree = "<group>"; };
-		3985EB9318A6A56B00997D8C /* Energie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Energie.m; sourceTree = "<group>"; };
 		3985EB9818A7F1AA00997D8C /* PNCircleChart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PNCircleChart.h; sourceTree = "<group>"; };
+		3985EBFF18A99BDB00997D8C /* Energie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Energie.h; sourceTree = "<group>"; };
+		3985EC0018A99BDB00997D8C /* Energie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Energie.m; sourceTree = "<group>"; };
 		39C0B28E1892F17C0042419B /* DataInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataInputViewController.h; sourceTree = "<group>"; };
 		39C0B28F1892F17C0042419B /* DataInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataInputViewController.m; sourceTree = "<group>"; };
 		39C0B291189695CA0042419B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
@@ -214,9 +214,9 @@
 		392348E0188D93BF002F179B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3985EB8E18A28C2D00997D8C /* images */,
 				392348E8188D93BF002F179B /* AppDelegate.h */,
 				392348E9188D93BF002F179B /* AppDelegate.m */,
+				3985EB8E18A28C2D00997D8C /* images */,
 				392348E1188D93BF002F179B /* EnergieApp-Info.plist */,
 				392348E2188D93BF002F179B /* InfoPlist.strings */,
 				392348E5188D93BF002F179B /* main.m */,
@@ -319,8 +319,8 @@
 		39C0B2951896AD5C0042419B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3985EB9218A6A56B00997D8C /* Energie.h */,
-				3985EB9318A6A56B00997D8C /* Energie.m */,
+				3985EBFF18A99BDB00997D8C /* Energie.h */,
+				3985EC0018A99BDB00997D8C /* Energie.m */,
 				39C0B2A2189971C40042419B /* EnergieData.xcdatamodeld */,
 				39C0B2A8189BFBC60042419B /* DataAccessLayer.h */,
 				39C0B2A9189BFBC60042419B /* DataAccessLayer.m */,
@@ -456,7 +456,7 @@
 				3985EB77189EA07B00997D8C /* PNColor.m in Sources */,
 				39C0B2A4189971C40042419B /* EnergieData.xcdatamodeld in Sources */,
 				39C0B2B1189C3D990042419B /* EnergyStatsViewController.m in Sources */,
-				3985EB9418A6A56B00997D8C /* Energie.m in Sources */,
+				3985EC0118A99BDB00997D8C /* Energie.m in Sources */,
 				39C0B2901892F17C0042419B /* DataInputViewController.m in Sources */,
 				3985EB5C189EA05D00997D8C /* ChartViewController.m in Sources */,
 				39C0B293189695CA0042419B /* SettingsViewController.m in Sources */,
