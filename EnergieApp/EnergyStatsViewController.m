@@ -269,11 +269,12 @@
     return YES;
 }
 */
-- (void)prepareChartViewController:(ChartViewController *)cvc toDisplayMentalChart:(NSArray *)chartDataMentalEnergy andFysicalChart:(NSArray *)chartDataFysicalEnergy withHourLabels:(NSArray *)labelData andTitle:(NSString *)title
+- (void)prepareChartViewController:(ChartViewController *)cvc toDisplayEnergyChart:(NSArray *)chartDataEnergy FocusChart:(NSArray *)chartDataFocus andMotivationChart:(NSArray *)chartDataMotivation withHourLabels:(NSArray *)labelData andTitle:(NSString *)title
 {
-    cvc.chartDataMentalEnergy = chartDataMentalEnergy;
-    cvc.chartDataPhyysicalEnergy = chartDataFysicalEnergy;
+    cvc.chartDataEnergy = chartDataEnergy;
+    cvc.chartDataFocus = chartDataFocus;
     cvc.chartHourLabels = labelData;
+    cvc.chartDataMotivation = chartDataMotivation;
     cvc.title = title;
     
 }
@@ -298,19 +299,21 @@
                  NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
                  [formatter setDateFormat:@"HH"];
                  
-                 NSMutableArray *data = [[NSMutableArray alloc]init];
-                 NSMutableArray *dataPhysical = [[NSMutableArray alloc]init];
-
+                 NSMutableArray *dataEnergy = [[NSMutableArray alloc]init];
+                 NSMutableArray *dataFocus = [[NSMutableArray alloc]init];
+                 NSMutableArray *dataMotivation = [[NSMutableArray alloc]init];
+                 
+                 
                  NSMutableArray *labelData = [[NSMutableArray alloc]init];
                  NSDate *date = [self.energyWeekDaySorted objectAtIndex:indexPath.row];
                  NSArray *test = [self.energyHistoryDict objectForKey:date];
                  NSLog(@"Test array is: %@", test);
                 for (Energie *energie in test)
                 {
-                    [data addObject:energie.energyLevel];
-                    [dataPhysical addObject:energie.focusLevel];
-                    //[dataPhysical addObject:energie.physicalEnergy];
-                    [labelData addObject:[formatter stringFromDate:energie.timeOfEntry]];    
+                    [dataEnergy addObject:energie.energyLevel];
+                    [dataFocus addObject:energie.focusLevel];
+                    [dataMotivation addObject:energie.motivationLevel];
+                    [labelData addObject:[formatter stringFromDate:energie.timeOfEntry]];
                 }
                  NSDate *weekDate = [self.energyWeekDaySorted objectAtIndex:indexPath.row];
                  
@@ -319,7 +322,9 @@
                  NSLog(@"WeekdayNumber: %i", weekdayNumber);
                  
                  NSString *title = [self.weekDayStringFormatter stringFromDate:weekDate];
-                 [self prepareChartViewController:segue.destinationViewController toDisplayMentalChart:data andFysicalChart:dataPhysical withHourLabels:labelData andTitle:title];
+            
+                 [self prepareChartViewController:segue.destinationViewController toDisplayEnergyChart:dataEnergy FocusChart:dataFocus andMotivationChart:dataMotivation withHourLabels:labelData andTitle:title];
+                 
                  
             
                 

@@ -16,8 +16,8 @@
 		390576BB18AD5A8400D2A967 /* PNLineChartData.m in Sources */ = {isa = PBXBuildFile; fileRef = 390576AF18AD5A8400D2A967 /* PNLineChartData.m */; };
 		390576BC18AD5A8400D2A967 /* PNLineChartDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 390576B118AD5A8400D2A967 /* PNLineChartDataItem.m */; };
 		390576BD18AD5A8400D2A967 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 390576B418AD5A8400D2A967 /* UICountingLabel.m */; };
-		390576BF18AD6BA600D2A967 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 390576BE18AD6BA600D2A967 /* data.json */; };
 		390576C518AD6C2100D2A967 /* Energie.m in Sources */ = {isa = PBXBuildFile; fileRef = 390576C418AD6C2100D2A967 /* Energie.m */; };
+		390576C718AD71E500D2A967 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 390576C618AD71E500D2A967 /* data.json */; };
 		392348DA188D93BF002F179B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392348D9188D93BF002F179B /* Foundation.framework */; };
 		392348DC188D93BF002F179B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392348DB188D93BF002F179B /* CoreGraphics.framework */; };
 		392348DE188D93BF002F179B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392348DD188D93BF002F179B /* UIKit.framework */; };
@@ -89,9 +89,9 @@
 		390576B118AD5A8400D2A967 /* PNLineChartDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChartDataItem.m; sourceTree = "<group>"; };
 		390576B318AD5A8400D2A967 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
 		390576B418AD5A8400D2A967 /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
-		390576BE18AD6BA600D2A967 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		390576C318AD6C2100D2A967 /* Energie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Energie.h; sourceTree = "<group>"; };
 		390576C418AD6C2100D2A967 /* Energie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Energie.m; sourceTree = "<group>"; };
+		390576C618AD71E500D2A967 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		392348D6188D93BF002F179B /* EnergieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnergieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		392348D9188D93BF002F179B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		392348DB188D93BF002F179B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -205,7 +205,6 @@
 		392348CD188D93BF002F179B = {
 			isa = PBXGroup;
 			children = (
-				390576BE18AD6BA600D2A967 /* data.json */,
 				392348DF188D93BF002F179B /* EnergieApp */,
 				392348FE188D93BF002F179B /* EnergieAppTests */,
 				392348D8188D93BF002F179B /* Frameworks */,
@@ -238,6 +237,7 @@
 		392348DF188D93BF002F179B /* EnergieApp */ = {
 			isa = PBXGroup;
 			children = (
+				390576C618AD71E500D2A967 /* data.json */,
 				3905769F18AD5A8400D2A967 /* PNChart */,
 				39C0B2961896AD630042419B /* View */,
 				39C0B2941896AD510042419B /* Controller */,
@@ -419,7 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39EACE53189D4C410091EC33 /* Main.storyboard in Resources */,
-				390576BF18AD6BA600D2A967 /* data.json in Resources */,
+				390576C718AD71E500D2A967 /* data.json in Resources */,
 				39EACEAF189E8B8E0091EC33 /* bar_chart-25.png in Resources */,
 				3985EB87189EEF7300997D8C /* Chart_Up@2x.png in Resources */,
 				3985EB85189EB46A00997D8C /* Images-2.xcassets in Resources */,

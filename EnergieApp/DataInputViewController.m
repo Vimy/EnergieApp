@@ -23,8 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *motivationValueLabel;
 
 @property (strong, nonatomic) NSDate *timeOfEntry;
-@property (strong, nonatomic) NSDate *dayOfEntry;
-@property (strong, nonatomic) NSDate *hourOfEntry;
 @property (strong, nonatomic) NSMutableArray *energieData;
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
@@ -59,8 +57,7 @@
     if(!_energieData)
     {
         _energieData = [[NSMutableArray alloc]init];
-        
-        
+ 
     }
     return _energieData;
 }
@@ -96,13 +93,17 @@
     energieData.timeOfEntry = self.timeOfEntry;
     //energieData.hourOfEntry =
   
+    energieData.energyLevel =  [NSNumber numberWithFloat:self.energyLevelSlider.value];
+    energieData.focusLevel = [NSNumber numberWithFloat:self.focusLevelSlider.value];
+    energieData.motivationLevel = [NSNumber numberWithFloat:self.motivationLevelSlider.value];
+    
     
     NSError *error;
     if (![context save:&error])
     {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
- 
+ /*
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Energie" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
@@ -112,6 +113,7 @@
   {
       NSLog(@"Tijd: %@", energie.timeOfEntry);
   }
+    */
     
 }
 

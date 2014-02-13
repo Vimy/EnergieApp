@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIView *focusView;
 @property (weak, nonatomic) IBOutlet UIView *energyView;
 
+@property (weak, nonatomic) IBOutlet UIView *motivationColorUitleg;
+@property (weak, nonatomic) IBOutlet UIView *focusColorUItleg;
+@property (weak, nonatomic) IBOutlet UIView *energyColorUItleg;
 
 @end
 
@@ -33,6 +36,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.energyColorUItleg.backgroundColor = PNGreen;
+    self.focusColorUItleg.backgroundColor = PNTwitterColor;
+    self.motivationColorUitleg.backgroundColor = PNStarYellow;
     [self setupChart];
     [self setupRondeCharts];
    //[self setupLabels];
@@ -44,16 +50,19 @@
     
     PNLineChartData *data01;
     PNLineChartData *data02;
+    PNLineChartData *data03;
+    
     NSArray *data01Array;
     NSArray *data02Array;
+    NSArray *data03Array;
     
     _lineChart = [[PNLineChart alloc]initWithFrame:CGRectMake(0, 64, WIDTH(self.view), 200.0)]; //64 = navbar + statusbar hoogte
 //    _lineChart.backgroundColor = [UIColor redColor]; //om duidelijk te zien waar de view ligt
     
     // [lineChart setXLabels:@[@"10u",@"11u",@"12u",@"13u",@"14u",@"15u",@"16u",@"17u" ]];
     [_lineChart setXLabels:self.chartHourLabels];
-    data01Array = self.chartDataMentalEnergy;
-    NSLog(@"Self.ChartData: %@", self.chartDataMentalEnergy);
+    data01Array = self.chartDataEnergy;
+    NSLog(@"Self.ChartData: %@", self.chartDataEnergy);
     //NSArray * data01Array = @[@8, @9, @9, @8, @8, @8, @7,@8];
     data01 = [PNLineChartData new];
     data01.color = PNFreshGreen;
@@ -66,7 +75,7 @@
     
     //    NSArray * data02Array = @[@20.1, @180.1, @26.4, @202.2, @126.2, @167.2, @276.2,@20.1, @180.1, @26.4, @202.2, @126.2];
     data02 = [PNLineChartData new];
-    data02Array = self.chartDataPhyysicalEnergy;
+    data02Array = self.chartDataFocus;
     NSLog(@"Data02Array: %@", data02Array);
     data02.color = PNTwitterColor;
     data02.itemCount = _lineChart.xLabels.count;
@@ -75,20 +84,31 @@
         return [PNLineChartDataItem dataItemWithY:yValue];
     };
     
-    _lineChart.chartData = @[data01, data02];
+    data03 = [PNLineChartData new];
+    data03Array = self.chartDataMotivation;
+    NSLog(@"Data03Array: %@", data03Array);
+    data03.color = PNStarYellow;
+    data03.itemCount = _lineChart.xLabels.count;
+    data03.getData = ^(NSUInteger index) {
+        CGFloat yValue = [[data03Array objectAtIndex:index] floatValue];
+        return [PNLineChartDataItem dataItemWithY:yValue];
+    };
+    
+    
+    _lineChart.chartData = @[data01, data02, data03];
     // lineChart.chartData = @[data01];
     [_lineChart strokeChart];
     [self.view addSubview:_lineChart];
     
     PNBarChart * barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 100.0)];
     [barChart setXLabels:self.chartHourLabels];
-    [barChart setYValues:self.chartDataMentalEnergy];
+    [barChart setYValues:self.chartDataEnergy];
     [barChart strokeChart];
     //[self.view addSubview:barChart];
     
     PNBarChart * barChartPhysical = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 135, SCREEN_WIDTH, 100.0)];
     [barChartPhysical setXLabels:self.chartHourLabels];
-    [barChartPhysical setYValues:self.chartDataPhyysicalEnergy];
+    [barChartPhysical setYValues:self.chartDataFocus];
     [barChartPhysical strokeChart];
     // [self.view addSubview:barChartPhysical];
     
@@ -116,8 +136,8 @@
     //Al die shit moei nie hier berekenen maar in een aparte methode of whatever.
     //Zelfde met al jon arrays in [self setupChart]
     //Backgroundcolors zijn geset omdak dan gemakkelijker kan zien waar da de view staat, da mag weg.
-    NSNumber *average = [self.chartDataMentalEnergy valueForKeyPath:@"@avg.self"];
-    NSNumber *averageFocus = [self.chartDataPhyysicalEnergy valueForKeyPath:@"@avg.self"];
+    NSNumber *average = [self.chartDataEnergy valueForKeyPath:@"@avg.self"];
+    NSNumber *averageFocus = [self.chartDataFocus valueForKeyPath:@"@avg.self"];
     NSLog(@"FOCUS average: %@", averageFocus);
     
     //    CGRect tet = CGRectMake(0, 190, SCREEN_WIDTH, 50.0);

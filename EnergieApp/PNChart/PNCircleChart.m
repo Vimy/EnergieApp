@@ -49,7 +49,7 @@
         [self.layer addSublayer:_circle];
         [self.layer addSublayer:_circleBG];
 
-		_gradeLabel = [[UICountingLabel alloc] initWithFrame:CGRectMake(0, 0, 25.0, 25.0)];
+		_gradeLabel = [[UICountingLabel alloc] initWithFrame:CGRectMake(0, 0, 50.0, 50.0)];
         
     }
     
