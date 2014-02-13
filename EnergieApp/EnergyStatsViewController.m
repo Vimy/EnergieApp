@@ -274,7 +274,7 @@
 - (void)prepareChartViewController:(ChartViewController *)cvc toDisplayMentalChart:(NSArray *)chartDataMentalEnergy andFysicalChart:(NSArray *)chartDataFysicalEnergy withHourLabels:(NSArray *)labelData andTitle:(NSString *)title
 {
     cvc.chartDataMentalEnergy = chartDataMentalEnergy;
-    cvc.chartDataFysicalEnergy = chartDataFysicalEnergy;
+    cvc.chartDataPhyysicalEnergy = chartDataFysicalEnergy;
     cvc.chartHourLabels = labelData;
     cvc.title = title;
     

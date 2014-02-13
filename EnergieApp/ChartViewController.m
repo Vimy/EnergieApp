@@ -9,6 +9,9 @@
 #import "ChartViewController.h"
 #import "PNChart.h"
 @interface ChartViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *Energy;
+@property (weak, nonatomic) IBOutlet UILabel *Motivation;
+@property (weak, nonatomic) IBOutlet UILabel *Focus;
 
 @end
 
@@ -37,7 +40,8 @@
 
 //    NSArray * data02Array = @[@20.1, @180.1, @26.4, @202.2, @126.2, @167.2, @276.2,@20.1, @180.1, @26.4, @202.2, @126.2];
     PNLineChartData *data02 = [PNLineChartData new];
-    NSArray *data02Array = self.chartDataFysicalEnergy;
+    NSArray *data02Array = self.chartDataPhyysicalEnergy;
+    NSLog(@"Data02Array: %@", data02Array);
     data02.color = PNTwitterColor;
     data02.itemCount = lineChart.xLabels.count;
     data02.getData = ^(NSUInteger index) {
@@ -45,46 +49,60 @@
         return [PNLineChartDataItem dataItemWithY:yValue];
     };
    
-    
-    
-    
-    
     lineChart.chartData = @[data01, data02];
    // lineChart.chartData = @[data01];
     [lineChart strokeChart];
-    [self.view addSubview:lineChart];
+   [self.view addSubview:lineChart];
     
     
-    PNBarChart * barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 135, SCREEN_WIDTH, 100.0)];
+    PNBarChart * barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 100.0)];
     [barChart setXLabels:self.chartHourLabels];
     [barChart setYValues:self.chartDataMentalEnergy];
     [barChart strokeChart];
-  //[self.view addSubview:barChart];
+    //[self.view addSubview:barChart];
+    
+    
+    PNBarChart * barChartPhysical = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 135, SCREEN_WIDTH, 100.0)];
+    [barChartPhysical setXLabels:self.chartHourLabels];
+    [barChartPhysical setYValues:self.chartDataPhyysicalEnergy];
+    [barChartPhysical strokeChart];
+   // [self.view addSubview:barChartPhysical];
+    
     
     NSNumber *average = [data01Array valueForKeyPath:@"@avg.self"];
+    NSNumber *averageFocus = [data02Array valueForKeyPath:@"@avg.self"];
+    NSLog(@"FOCUS average: %@", averageFocus);
     
+    CGRect tet = CGRectMake(0, 190, SCREEN_WIDTH, 50.0);
+    CGRect nipple = CGRectMake(0, 190, SCREEN_WIDTH/2, 50.0);
+
     
-    PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:CGRectMake(0, 190, SCREEN_WIDTH, 50.0) andTotal:[NSNumber numberWithInt:10] andCurrent:average];
+    [self drawCircleChart:&tet maxValueOfCircle:[NSNumber numberWithInt:10] andCurrentNumberOfCircle:average];
+    [self drawCircleChart:&nipple maxValueOfCircle:[NSNumber numberWithInt:3] andCurrentNumberOfCircle:averageFocus];
+
+}
+
+
+- (void)drawCircleChart:(CGRect *)circleFrame maxValueOfCircle:(NSNumber *)maxNumber andCurrentNumberOfCircle:(NSNumber *)currentNumber
+{
+    PNCircleChart * circleChart = [[PNCircleChart alloc] initWithFrame:*circleFrame andTotal:maxNumber andCurrent:currentNumber];
     circleChart.backgroundColor = [UIColor clearColor];
-    if ([average intValue] >= 5 )
+    if ([currentNumber intValue] >= 5 )
     {
         [circleChart setStrokeColor:PNGreen];
         
     }
-    else if ([average intValue] >= 4 )
+    else if ([currentNumber intValue] >= 4 )
     {
         [circleChart setStrokeColor:PNYellow];
     }
-    else if ([average intValue] >= 1 )
+    else if ([currentNumber intValue] >= 1 )
     {
         [circleChart setStrokeColor:PNRed];
     }
     
     [circleChart strokeChart];
     [self.view addSubview:circleChart];
-    
-    
-    NSLog(@"Chart getekend");
 }
 
 - (void)didReceiveMemoryWarning

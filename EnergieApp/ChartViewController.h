@@ -11,5 +11,5 @@
 @interface ChartViewController : UIViewController
 @property NSArray *chartDataMentalEnergy;
 @property NSArray *chartHourLabels;
-@property NSArray *chartDataFysicalEnergy;
+@property NSArray *chartDataPhyysicalEnergy;
 @end

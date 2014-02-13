@@ -7,20 +7,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-        UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     NSLog(@"%@", localNotification);
- if    (localNotification)
- {
+    if    (localNotification)
+    {
         application.applicationIconBadgeNumber = 0;
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
         DataInputViewController *inputViewController = (DataInputViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"input"];
         [self.window addSubview:inputViewController.view];
         [self.window makeKeyAndVisible];
         NSLog(@"Tet;");
-  
-     
-}
-    
+        
+        
+    }
 
     
     [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xC0272A)];
@@ -67,5 +66,12 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    application.applicationIconBadgeNumber = 0;
+}
+
+
 
 @end

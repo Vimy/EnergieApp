@@ -9,8 +9,11 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
+
 @property NSArray *intervalArray;
 @property NSTimeInterval pickerValue;
+
+
 
 @end
 
@@ -26,58 +29,30 @@
 - (IBAction)savePrefs:(UIButton *)sender
 {
 
-    UILocalNotification *localNotification = [[UILocalNotification alloc]init];
-  //  localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:self.pickerValue];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:15];
-    localNotification.alertBody = @"Energie App";
-    localNotification.alertAction = @"How are you feeling now?";
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    localNotification.applicationIconBadgeNumber +=1;
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-    localNotification.repeatInterval = NSMinuteCalendarUnit;
-    
-    
-    ////////////
-    /*
-    
-    UILocalNotification *notif = [[cls alloc] init];
-    notif.fireDate = [datePicker date];
-    notif.timeZone = [NSTimeZone defaultTimeZone];
-    
-    notif.alertBody = @"Did you forget something?";
-    notif.alertAction = @"Show me";
-    notif.soundName = UILocalNotificationDefaultSoundName;
-    notif.applicationIconBadgeNumber = 1;
-    
-    NSInteger index = [scheduleControl selectedSegmentIndex];
-    switch (index) {
-        case 1:
-            notif.repeatInterval = NSMinuteCalendarUnit;
-            break;
-        case 2:
-            notif.repeatInterval = NSHourCalendarUnit;
-            break;
-        case 3:
-            notif.repeatInterval = NSDayCalendarUnit;
-            break;
-        case 4:
-            notif.repeatInterval = NSWeekCalendarUnit;
-            break;
-        default:
-            notif.repeatInterval = 0;
-            break;
-    }
-    
-    NSDictionary *userDict = [NSDictionary dictionaryWithObject:reminderText.text
-                                                         forKey:kRemindMeNotificationDataKey];
-    notif.userInfo = userDict;
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:notif];
-    [notif release];
-    */
-    
-    
+   
+        UILocalNotification *localNotification = [[UILocalNotification alloc]init];
+        //  localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:self.pickerValue];
+        localNotification.fireDate = [NSDate date];
+        localNotification.alertBody = @"Energie App";
+        localNotification.alertAction = @"How are you feeling now?";
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        localNotification.applicationIconBadgeNumber +=1;
+        localNotification.repeatInterval = NSMinuteCalendarUnit;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        
+        UILocalNotification *localNotification2 = [[UILocalNotification alloc]init];
+        //  localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:self.pickerValue];
+        localNotification2.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
+        localNotification2.alertBody = @"Energie App";
+        localNotification2.alertAction = @"Dit is de tweede boodschap";
+        localNotification2.soundName = UILocalNotificationDefaultSoundName;
+        localNotification2.applicationIconBadgeNumber +=1;
+        localNotification2.repeatInterval = NSMinuteCalendarUnit;
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification2];
+        
+
 }
+
 #pragma mark -
 #pragma mark PickerView DataSource
 
