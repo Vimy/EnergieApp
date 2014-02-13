@@ -32,24 +32,17 @@
    
         UILocalNotification *localNotification = [[UILocalNotification alloc]init];
         //  localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:self.pickerValue];
-        localNotification.fireDate = [NSDate date];
+        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:60*30];
         localNotification.alertBody = @"Energie App";
         localNotification.alertAction = @"How are you feeling now?";
         localNotification.soundName = UILocalNotificationDefaultSoundName;
         localNotification.applicationIconBadgeNumber +=1;
         localNotification.repeatInterval = NSMinuteCalendarUnit;
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        
-        UILocalNotification *localNotification2 = [[UILocalNotification alloc]init];
-        //  localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:self.pickerValue];
-        localNotification2.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
-        localNotification2.alertBody = @"Energie App";
-        localNotification2.alertAction = @"Dit is de tweede boodschap";
-        localNotification2.soundName = UILocalNotificationDefaultSoundName;
-        localNotification2.applicationIconBadgeNumber +=1;
-        localNotification2.repeatInterval = NSMinuteCalendarUnit;
-        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification2];
-        
+    
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:60*30];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
 
 }
 

@@ -226,9 +226,7 @@
     
     [circleChart strokeChart];
     [circleSubView addSubview:circleChart];
-    
-    
-     [cell addSubview:circleSubView];
+    [cell addSubview:circleSubView];
     
     return cell;
 }

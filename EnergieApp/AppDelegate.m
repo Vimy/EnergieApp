@@ -1,3 +1,12 @@
+//
+//  AppDelegate.m
+//  EnergieApp
+//
+//  Created by Matthias Vermeulen on 20/01/14.
+//  Copyright (c) 2014 Noizy. All rights reserved.
+//
+
+
 #import "AppDelegate.h"
 #import "DataInputViewController.h"
 @implementation AppDelegate
