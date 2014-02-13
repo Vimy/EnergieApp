@@ -19,6 +19,9 @@
 @property (strong, nonatomic) UILabel *motivationLabel;
 @property (strong, nonatomic) UILabel *focusLabel;
 @property (strong, nonatomic) PNLineChart *lineChart;
+@property (strong, nonatomic) PNCircleChart *energyChart;
+@property (strong, nonatomic) PNCircleChart *motivationChart;
+@property (strong, nonatomic) PNCircleChart *focusChart;
 @end
 
 @implementation ChartViewController
@@ -28,8 +31,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self setupChart];
-    [self setupLabels];
     [self setupRondeCharts];
+    [self setupLabels];
 }
 
 #pragma mark - Setup
@@ -96,24 +99,6 @@
 
 }
 
-- (void)setupLabels {
-    _energyLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, BOTTOM(_lineChart) + 10, WIDTH(self.view) / 3, 20)];
-    _energyLabel.text = @"Energy";
-    _energyLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_energyLabel];
-    
-    _motivationLabel = [[UILabel alloc]initWithFrame:CGRectMake(RIGHT(_energyLabel), BOTTOM(_lineChart) + 10, WIDTH(self.view) / 3, 20)];
-    _motivationLabel.text = @"Motivation";
-    _motivationLabel.backgroundColor = [UIColor redColor];
-    _motivationLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_motivationLabel];
-    
-    _focusLabel = [[UILabel alloc]initWithFrame:CGRectMake(RIGHT(_motivationLabel), BOTTOM(_lineChart) + 10, WIDTH(self.view) / 3, 20)];
-    _focusLabel.text = @"Focus";
-    _focusLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:_focusLabel];
-}
-
 - (void)setupRondeCharts { //Verzin maar een betere naam
     
     //Al die shit moei nie hier berekenen maar in een aparte methode of whatever.
@@ -123,26 +108,44 @@
     NSNumber *averageFocus = [data02Array valueForKeyPath:@"@avg.self"];
     NSLog(@"FOCUS average: %@", averageFocus);
     
-//    CGRect tet = CGRectMake(0, 190, SCREEN_WIDTH, 50.0);
-//    CGRect nipple = CGRectMake(0, 190, SCREEN_WIDTH/2, 50.0);
+    //    CGRect tet = CGRectMake(0, 190, SCREEN_WIDTH, 50.0);
+    //    CGRect nipple = CGRectMake(0, 190, SCREEN_WIDTH/2, 50.0);
     
-    PNCircleChart *energyChart = [self drawCircleChart:CGRectMake(X(_energyLabel), BOTTOM(_energyLabel) + 10, WIDTH(_energyLabel), 100)
+    _energyChart = [self drawCircleChart:CGRectMake(0, BOTTOM(_lineChart) + 10, WIDTH(self.view) / 3, 100)
                                       maxValueOfCircle:[NSNumber numberWithInt:10]
                               andCurrentNumberOfCircle:average];
-    energyChart.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:energyChart];
+    _energyChart.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:_energyChart];
     
-    PNCircleChart *motivationChart = [self drawCircleChart:CGRectMake(X(_motivationLabel), BOTTOM(_energyLabel) + 10, WIDTH(_motivationLabel), 100)
+    _motivationChart = [self drawCircleChart:CGRectMake(RIGHT(_energyChart), BOTTOM(_lineChart) + 10, WIDTH(self.view) / 3, 100)
                                           maxValueOfCircle:[NSNumber numberWithInt:10]
                                   andCurrentNumberOfCircle:average];
-    motivationChart.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:motivationChart];
+    _motivationChart.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:_motivationChart];
     
-    PNCircleChart *focusChart = [self drawCircleChart:CGRectMake(X(_focusLabel), BOTTOM(_energyLabel) + 10, WIDTH(_focusLabel), 100)
+    _focusChart = [self drawCircleChart:CGRectMake(RIGHT(_motivationChart), BOTTOM(_lineChart) + 10, WIDTH(self.view) / 3, 100)
                                      maxValueOfCircle:[NSNumber numberWithInt:10]
                              andCurrentNumberOfCircle:averageFocus];
-    focusChart.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:focusChart];
+    _focusChart.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:_focusChart];
+}
+
+- (void)setupLabels {
+    _energyLabel = [[UILabel alloc]initWithFrame:CGRectMake(X(_energyChart), BOTTOM(_energyChart) + 10, WIDTH(self.view) / 3, 20)];
+    _energyLabel.text = @"Energy";
+    _energyLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_energyLabel];
+    
+    _motivationLabel = [[UILabel alloc]initWithFrame:CGRectMake(X(_motivationChart), BOTTOM(_motivationChart) + 10, WIDTH(self.view) / 3, 20)];
+    _motivationLabel.text = @"Motivation";
+    _motivationLabel.backgroundColor = [UIColor redColor];
+    _motivationLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_motivationLabel];
+    
+    _focusLabel = [[UILabel alloc]initWithFrame:CGRectMake(X(_focusChart), BOTTOM(_focusChart) + 10, WIDTH(self.view) / 3, 20)];
+    _focusLabel.text = @"Focus";
+    _focusLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_focusLabel];
 }
 
 - (PNCircleChart *)drawCircleChart:(CGRect)circleFrame maxValueOfCircle:(NSNumber *)maxNumber andCurrentNumberOfCircle:(NSNumber *)currentNumber
