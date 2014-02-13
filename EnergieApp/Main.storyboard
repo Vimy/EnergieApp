@@ -34,9 +34,6 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="F0q-Ru-oty">
                                 <rect key="frame" x="52" y="142" width="218" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="mentalEnergyLevelSlider:" destination="p0K-jZ-1s1" eventType="valueChanged" id="mOg-vn-aSX"/>
-                                </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmC-8v-Cd2">
                                 <rect key="frame" x="27" y="120" width="267" height="14"/>
@@ -55,9 +52,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="submitData:" destination="p0K-jZ-1s1" eventType="touchUpInside" id="3hA-Sg-ecx"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QK-Ah-R8O">
                                 <rect key="frame" x="-8" y="472" width="334" height="40"/>
@@ -67,7 +61,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="submitData:" destination="p0K-jZ-1s1" eventType="touchUpInside" id="8LN-dL-9e4"/>
+                                    <action selector="submitData:" destination="p0K-jZ-1s1" eventType="touchUpInside" id="RbX-XK-bo9"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="2ay-PQ-toX">
@@ -107,9 +101,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="mcP-6E-uMB"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="mentalEnergyLevelSlider:" destination="p0K-jZ-1s1" eventType="valueChanged" id="Pjb-ri-jLR"/>
-                                </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dr-W9-YIA">
                                 <rect key="frame" x="24" y="292" width="267" height="14"/>
@@ -164,9 +155,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="How do you feel right now?" id="PdL-WJ-9du"/>
                     <connections>
-                        <outlet property="dataSubmitButton" destination="4QK-Ah-R8O" id="yxN-Vg-Tv7"/>
-                        <outlet property="mentalEnergyLevelSlider" destination="F0q-Ru-oty" id="UeL-ze-Iee"/>
-                        <outlet property="mentalEnergyValueLabel" destination="YmC-8v-Cd2" id="f62-Th-SUD"/>
+                        <outlet property="EnergyLevelSlider" destination="F0q-Ru-oty" id="x58-jJ-qZG"/>
+                        <outlet property="EnergyValueLabel" destination="YmC-8v-Cd2" id="h6C-2w-a9x"/>
+                        <outlet property="energyValueLabel" destination="YmC-8v-Cd2" id="xyz-66-aVb"/>
+                        <outlet property="focusLevelSlider" destination="2ay-PQ-toX" id="VBi-oY-hjK"/>
+                        <outlet property="focusValueLabel" destination="5km-FO-Q7U" id="Xmz-tt-qua"/>
+                        <outlet property="motivationLevelSlider" destination="7QX-S8-L0F" id="8D4-ye-gP5"/>
+                        <outlet property="motivationValueLabel" destination="7Dr-W9-YIA" id="FeB-4x-Fv6"/>
+                        <outlet property="submitDataButton" destination="4QK-Ah-R8O" id="d8w-PN-ICv"/>
+                        <outlet property="submitNoteButton" destination="YJ5-rm-eZh" id="rHe-wa-zRB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QPP-P3-IyX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -438,9 +435,31 @@
                     <view key="view" contentMode="scaleToFill" id="w7m-T3-x1g">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fKS-nE-Yxl">
+                                <rect key="frame" x="20" y="293" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="0.29756599600040834" blue="0.099258056722996701" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JL7-33-eqO">
+                                <rect key="frame" x="120" y="293" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="0.297565996" blue="0.099258056720000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QLS-Dv-owN">
+                                <rect key="frame" x="220" y="293" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="0.297565996" blue="0.099258056720000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="2H8-sn-Kcn"/>
+                    <connections>
+                        <outlet property="energyView" destination="QLS-Dv-owN" id="Xwr-2H-Awb"/>
+                        <outlet property="focusView" destination="JL7-33-eqO" id="P88-4H-5FZ"/>
+                        <outlet property="motivationView" destination="fKS-nE-Yxl" id="0z2-Q0-n6l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeX-71-rQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -522,6 +541,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZA-mz-chb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="446" y="111"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Af6-fy-ynF">
+            <objects>
+                <viewController id="7ZT-mx-3P4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QMh-e9-Jh6"/>
+                        <viewControllerLayoutGuide type="bottom" id="KWZ-gT-V1Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SlH-7z-qT3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V80-Pt-FlT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

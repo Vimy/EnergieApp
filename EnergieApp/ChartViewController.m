@@ -9,12 +9,10 @@
 #import "ChartViewController.h"
 #import "PNChart.h"
 
-@interface ChartViewController () {
-    PNLineChartData *data01;
-    PNLineChartData *data02;
-    NSArray *data01Array;
-    NSArray *data02Array;
-}
+@interface ChartViewController ()
+
+
+
 @property (strong, nonatomic) UILabel *energyLabel;
 @property (strong, nonatomic) UILabel *motivationLabel;
 @property (strong, nonatomic) UILabel *focusLabel;
@@ -22,6 +20,11 @@
 @property (strong, nonatomic) PNCircleChart *energyChart;
 @property (strong, nonatomic) PNCircleChart *motivationChart;
 @property (strong, nonatomic) PNCircleChart *focusChart;
+@property (weak, nonatomic) IBOutlet UIView *motivationView;
+@property (weak, nonatomic) IBOutlet UIView *focusView;
+@property (weak, nonatomic) IBOutlet UIView *energyView;
+
+
 @end
 
 @implementation ChartViewController
@@ -32,12 +35,18 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self setupChart];
     [self setupRondeCharts];
-    [self setupLabels];
+   //[self setupLabels];
 }
 
 #pragma mark - Setup
 
 - (void)setupChart {
+    
+    PNLineChartData *data01;
+    PNLineChartData *data02;
+    NSArray *data01Array;
+    NSArray *data02Array;
+    
     _lineChart = [[PNLineChart alloc]initWithFrame:CGRectMake(0, 64, WIDTH(self.view), 200.0)]; //64 = navbar + statusbar hoogte
 //    _lineChart.backgroundColor = [UIColor redColor]; //om duidelijk te zien waar de view ligt
     
@@ -51,7 +60,6 @@
     data01.itemCount = _lineChart.xLabels.count;
     data01.getData = ^(NSUInteger index) {
         CGFloat yValue = [[data01Array objectAtIndex:index] floatValue];
-#warning fix retain cycle
         return [PNLineChartDataItem dataItemWithY:yValue];
     };
     
@@ -64,7 +72,6 @@
     data02.itemCount = _lineChart.xLabels.count;
     data02.getData = ^(NSUInteger index) {
         CGFloat yValue = [[data02Array objectAtIndex:index] floatValue];
-#warning fix retain cycle
         return [PNLineChartDataItem dataItemWithY:yValue];
     };
     
@@ -85,7 +92,7 @@
     [barChartPhysical strokeChart];
     // [self.view addSubview:barChartPhysical];
     
-    
+      
 //    NSNumber *average = [data01Array valueForKeyPath:@"@avg.self"];
 //    NSNumber *averageFocus = [data02Array valueForKeyPath:@"@avg.self"];
 //    NSLog(@"FOCUS average: %@", averageFocus);
@@ -101,36 +108,44 @@
 
 - (void)setupRondeCharts { //Verzin maar een betere naam
     
+    
+    self.energyView.backgroundColor = [UIColor clearColor];
+    self.motivationView.backgroundColor = [UIColor clearColor];
+    self.focusView.backgroundColor = [UIColor clearColor];
+    
     //Al die shit moei nie hier berekenen maar in een aparte methode of whatever.
     //Zelfde met al jon arrays in [self setupChart]
     //Backgroundcolors zijn geset omdak dan gemakkelijker kan zien waar da de view staat, da mag weg.
-    NSNumber *average = [data01Array valueForKeyPath:@"@avg.self"];
-    NSNumber *averageFocus = [data02Array valueForKeyPath:@"@avg.self"];
+    NSNumber *average = [self.chartDataMentalEnergy valueForKeyPath:@"@avg.self"];
+    NSNumber *averageFocus = [self.chartDataPhyysicalEnergy valueForKeyPath:@"@avg.self"];
     NSLog(@"FOCUS average: %@", averageFocus);
     
     //    CGRect tet = CGRectMake(0, 190, SCREEN_WIDTH, 50.0);
     //    CGRect nipple = CGRectMake(0, 190, SCREEN_WIDTH/2, 50.0);
     
-    _energyChart = [self drawCircleChart:CGRectMake(0, BOTTOM(_lineChart) + 10, WIDTH(self.view) / 3, 100)
-                                      maxValueOfCircle:[NSNumber numberWithInt:10]
-                              andCurrentNumberOfCircle:average];
-    _energyChart.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:_energyChart];
+  _energyChart = [self drawCircleChart:CGRectMake(0,0, 75,75)maxValueOfCircle:[NSNumber numberWithInt:10]andCurrentNumberOfCircle:average];
+
+    [self.energyView addSubview:self.energyChart];
     
-    _motivationChart = [self drawCircleChart:CGRectMake(RIGHT(_energyChart), BOTTOM(_lineChart) + 10, WIDTH(self.view) / 3, 100)
+    _motivationChart = [self drawCircleChart:CGRectMake(0,0, 75,75)
                                           maxValueOfCircle:[NSNumber numberWithInt:10]
                                   andCurrentNumberOfCircle:average];
-    _motivationChart.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:_motivationChart];
+    _motivationChart.lineWidth = [NSNumber numberWithInt:5];
+   [self.motivationView addSubview:_motivationChart];
     
-    _focusChart = [self drawCircleChart:CGRectMake(RIGHT(_motivationChart), BOTTOM(_lineChart) + 10, WIDTH(self.view) / 3, 100)
+    
+    _focusChart = [self drawCircleChart:CGRectMake(0,0, 75,75)
                                      maxValueOfCircle:[NSNumber numberWithInt:10]
                              andCurrentNumberOfCircle:averageFocus];
-    _focusChart.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:_focusChart];
+   [self.focusView addSubview:_focusChart];
+
 }
 
 - (void)setupLabels {
+    
+    PNCircleChart *circleTiet = [[PNCircleChart alloc]initWithFrame:CGRectMake(100,130,106.666664,100) andTotal:[NSNumber numberWithInt:10] andCurrent:[NSNumber numberWithInt:7]];
+    
+    [self.view addSubview:circleTiet];
     _energyLabel = [[UILabel alloc]initWithFrame:CGRectMake(X(_energyChart), BOTTOM(_energyChart) + 10, WIDTH(self.view) / 3, 20)];
     _energyLabel.text = @"Energy";
     _energyLabel.textAlignment = NSTextAlignmentCenter;
@@ -153,6 +168,9 @@
     PNCircleChart *circleChart = [[PNCircleChart alloc]initWithFrame:circleFrame
                                                              andTotal:maxNumber
                                                            andCurrent:currentNumber];
+    
+    NSLog(@"Method drawCicrcleChart called");
+    
     circleChart.backgroundColor = [UIColor clearColor];
     if ([currentNumber intValue] >= 5 )
     {
@@ -169,7 +187,7 @@
     }
     
     [circleChart strokeChart];
-//    [self.view addSubview:circleChart];
+   //[self.view addSubview:circleChart];
     
     return circleChart;
 }

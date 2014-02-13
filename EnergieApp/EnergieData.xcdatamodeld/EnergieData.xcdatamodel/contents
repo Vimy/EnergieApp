@@ -2,11 +2,10 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Energie" representedClassName="Energie" syncable="YES">
         <attribute name="dayOfEntry" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="energyLevel" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="focusLevel" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="hourOfEntry" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="mentalEnergy" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="motivationLevel" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="physicalEnergy" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="timeOfEntry" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>

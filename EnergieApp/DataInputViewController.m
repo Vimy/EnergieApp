@@ -13,11 +13,14 @@
 
 
 @interface DataInputViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *dataSubmitButton;
-@property (weak, nonatomic) IBOutlet UILabel *physicalEnergyValueLabel;
+@property (weak, nonatomic) IBOutlet UIButton *submitDataButton;
+@property (weak, nonatomic) IBOutlet UIButton *submitNoteButton;
 @property (weak, nonatomic) IBOutlet UISlider *energyLevelSlider;
-@property (weak, nonatomic) IBOutlet UISlider *mentalEnergyLevelSlider;
-@property (weak, nonatomic) IBOutlet UILabel *mentalEnergyValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *energyValueLabel;
+@property (weak, nonatomic) IBOutlet UISlider *focusLevelSlider;
+@property (weak, nonatomic) IBOutlet UILabel *focusValueLabel;
+@property (weak, nonatomic) IBOutlet UISlider *motivationLevelSlider;
+@property (weak, nonatomic) IBOutlet UILabel *motivationValueLabel;
 
 @property (strong, nonatomic) NSDate *timeOfEntry;
 @property (strong, nonatomic) NSDate *dayOfEntry;
@@ -38,10 +41,16 @@
     self.managedObjectContext = [accesLayer managedObjectContext];
   //  self.view.backgroundColor = UIColorFromRGB(0xC0272A);
     //  self.managedObjectContext = [appDelegate managedObjectContext];
-    self.energyLevelSlider.value = 6;
-    self.mentalEnergyLevelSlider.value = 6;
-    self.physicalEnergyValueLabel.text = @"Redelijk";
-    self.mentalEnergyValueLabel.text = @"Redelijk";
+
+    
+    
+    
+    NSError* err = nil;
+    NSString* dataPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
+    NSArray* Banks = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:dataPath]
+                                                     options:kNilOptions
+                                                       error:&err];
+    NSLog(@"Imported Banks: %@", Banks);
 }
 
 
@@ -56,64 +65,6 @@
     return _energieData;
 }
 
-- (IBAction)energyLevelSlider:(UISlider *)sender
-{
-    int value = sender.value;
-   // physicalEnergyValueLabel.text
-    
-    switch (value)
-    {
-        case 0:
-            self.physicalEnergyValueLabel.text = @"Vreselijk";
-            break;
-        case 2:
-            self.physicalEnergyValueLabel.text = @"Slecht";
-            break;
-        case 4:
-            self.physicalEnergyValueLabel.text = @"Minder";
-            break;
-        case 6:
-            self.physicalEnergyValueLabel.text = @"Redelijk";
-            break;
-        case 8:
-            self.physicalEnergyValueLabel.text = @"Goed";
-            break;
-        case 10:
-            self.physicalEnergyValueLabel.text = @"Super";
-            break;
-    }
-}
-
-
-- (IBAction)mentalEnergyLevelSlider:(UISlider *)sender
-{
-    int value = sender.value;
-    // physicalEnergyValueLabel.text
-    
-    switch (value)
-    {
-        case 0:
-            self.mentalEnergyValueLabel.text = @"Vreselijk";
-            break;
-        case 2:
-            self.mentalEnergyValueLabel.text = @"Slecht";
-            break;
-        case 4:
-            self.mentalEnergyValueLabel.text = @"Minder";
-            break;
-        case 6:
-            self.mentalEnergyValueLabel.text = @"Redelijk";
-            break;
-        case 8:
-            self.mentalEnergyValueLabel.text = @"Goed";
-            break;
-        case 10:
-            self.mentalEnergyValueLabel.text = @"Super";
-            break;
-    }
-
-    
-}
 
 - (IBAction)submitData:(UIButton *)sender
 {
@@ -137,16 +88,14 @@
     
     //--------------------------------------------------
     
-    NSNumber *physical = [NSNumber numberWithFloat:self.energyLevelSlider.value];
-    NSNumber *mental = [NSNumber numberWithFloat:self.mentalEnergyLevelSlider.value];
+ 
 
     
     NSManagedObjectContext *context = [self managedObjectContext];
     Energie *energieData = [NSEntityDescription insertNewObjectForEntityForName:@"Energie" inManagedObjectContext:self.managedObjectContext];
     energieData.timeOfEntry = self.timeOfEntry;
     //energieData.hourOfEntry =
-    energieData.physicalEnergy = physical;
-    energieData.mentalEnergy = mental;
+  
     
     NSError *error;
     if (![context save:&error])

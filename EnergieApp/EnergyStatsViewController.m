@@ -200,7 +200,7 @@
     NSLog(@"Test array is: %@", test);
     for (Energie *energie in test)
     {
-        [data addObject:energie.mentalEnergy];
+        [data addObject:energie.energyLevel];
     }
     
     NSNumber *average = [data valueForKeyPath:@"@avg.self"];
@@ -307,7 +307,7 @@
                  NSLog(@"Test array is: %@", test);
                 for (Energie *energie in test)
                 {
-                    [data addObject:energie.mentalEnergy];
+                    [data addObject:energie.energyLevel];
                     [dataPhysical addObject:energie.focusLevel];
                     //[dataPhysical addObject:energie.physicalEnergy];
                     [labelData addObject:[formatter stringFromDate:energie.timeOfEntry]];    

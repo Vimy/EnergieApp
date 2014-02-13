@@ -2,7 +2,7 @@
 //  Energie.m
 //  EnergieApp
 //
-//  Created by Matthias Vermeulen on 11/02/14.
+//  Created by Matthias Vermeulen on 13/02/14.
 //  Copyright (c) 2014 Noizy. All rights reserved.
 //
 
@@ -12,11 +12,10 @@
 @implementation Energie
 
 @dynamic dayOfEntry;
-@dynamic hourOfEntry;
-@dynamic mentalEnergy;
-@dynamic physicalEnergy;
-@dynamic timeOfEntry;
-@dynamic motivationLevel;
 @dynamic focusLevel;
+@dynamic hourOfEntry;
+@dynamic energyLevel;
+@dynamic motivationLevel;
+@dynamic timeOfEntry;
 
 @end
