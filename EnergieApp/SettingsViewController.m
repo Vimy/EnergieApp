@@ -35,7 +35,7 @@
    
         UILocalNotification *localNotification = [[UILocalNotification alloc]init];
         //  localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:self.pickerValue];
-        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:60*30];
+        localNotification.fireDate = [NSDate date];
         localNotification.alertBody = @"Energie App";
         localNotification.alertAction = @"How are you feeling now?";
         localNotification.soundName = UILocalNotificationDefaultSoundName;
@@ -43,8 +43,7 @@
         localNotification.repeatInterval = NSMinuteCalendarUnit;
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:60*30];
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
     
     
 

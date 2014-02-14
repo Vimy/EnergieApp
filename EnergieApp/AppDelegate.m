@@ -21,11 +21,6 @@
     if    (localNotification)
     {
         application.applicationIconBadgeNumber = 0;
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-        DataInputViewController *inputViewController = (DataInputViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"input"];
-        [self.window addSubview:inputViewController.view];
-        [self.window makeKeyAndVisible];
-        NSLog(@"Tet;");
         
         
     }
