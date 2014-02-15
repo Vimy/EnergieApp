@@ -40,7 +40,7 @@
 		3985EB8B189EEFCA00997D8C /* More@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3985EB8A189EEFCA00997D8C /* More@2x.png */; };
 		3985EB8D189EF57E00997D8C /* Add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3985EB8C189EF57E00997D8C /* Add@2x.png */; };
 		39C0B2901892F17C0042419B /* DataInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C0B28F1892F17C0042419B /* DataInputViewController.m */; };
-		39C0B293189695CA0042419B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C0B292189695CA0042419B /* SettingsViewController.m */; };
+		39C0B293189695CA0042419B /* setIntervalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C0B292189695CA0042419B /* setIntervalViewController.m */; };
 		39C0B2A4189971C40042419B /* EnergieData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39C0B2A2189971C40042419B /* EnergieData.xcdatamodeld */; };
 		39C0B2AA189BFBC60042419B /* DataAccessLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C0B2A9189BFBC60042419B /* DataAccessLayer.m */; };
 		39C0B2AE189C055B0042419B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C0B2AD189C055B0042419B /* CoreData.framework */; };
@@ -120,8 +120,8 @@
 		3985EB8C189EF57E00997D8C /* Add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add@2x.png"; sourceTree = "<group>"; };
 		39C0B28E1892F17C0042419B /* DataInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataInputViewController.h; sourceTree = "<group>"; };
 		39C0B28F1892F17C0042419B /* DataInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataInputViewController.m; sourceTree = "<group>"; };
-		39C0B291189695CA0042419B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		39C0B292189695CA0042419B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		39C0B291189695CA0042419B /* setIntervalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = setIntervalViewController.h; sourceTree = "<group>"; };
+		39C0B292189695CA0042419B /* setIntervalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = setIntervalViewController.m; sourceTree = "<group>"; };
 		39C0B2A3189971C40042419B /* EnergieData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnergieData.xcdatamodel; sourceTree = "<group>"; };
 		39C0B2A8189BFBC60042419B /* DataAccessLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAccessLayer.h; sourceTree = "<group>"; };
 		39C0B2A9189BFBC60042419B /* DataAccessLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAccessLayer.m; sourceTree = "<group>"; };
@@ -311,8 +311,8 @@
 				3985EB5B189EA05D00997D8C /* ChartViewController.m */,
 				39C0B2AF189C3D990042419B /* EnergyStatsViewController.h */,
 				39C0B2B0189C3D990042419B /* EnergyStatsViewController.m */,
-				39C0B291189695CA0042419B /* SettingsViewController.h */,
-				39C0B292189695CA0042419B /* SettingsViewController.m */,
+				39C0B291189695CA0042419B /* setIntervalViewController.h */,
+				39C0B292189695CA0042419B /* setIntervalViewController.m */,
 				39C0B28E1892F17C0042419B /* DataInputViewController.h */,
 				39C0B28F1892F17C0042419B /* DataInputViewController.m */,
 			);
@@ -465,7 +465,7 @@
 				390576BA18AD5A8400D2A967 /* PNLineChart.m in Sources */,
 				390576B518AD5A8400D2A967 /* PNBar.m in Sources */,
 				390576BC18AD5A8400D2A967 /* PNLineChartDataItem.m in Sources */,
-				39C0B293189695CA0042419B /* SettingsViewController.m in Sources */,
+				39C0B293189695CA0042419B /* setIntervalViewController.m in Sources */,
 				390576B918AD5A8400D2A967 /* PNColor.m in Sources */,
 				390576B618AD5A8400D2A967 /* PNBarChart.m in Sources */,
 				390576BD18AD5A8400D2A967 /* UICountingLabel.m in Sources */,

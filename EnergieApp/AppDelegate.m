@@ -24,14 +24,15 @@
         
         
     }
+ 
+#
+    
+    //[[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xC0272A)];
+       [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xCE3C00)];
+   self.window.tintColor = 	[UIColor whiteColor];
+  //  [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xC0272A)];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xCE3C00)];
 
-    
-    [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0xC0272A)];
-    //[[UITabBar appearance] setBarTintColor:UIColorFromRGB(0x1EB6BC)];
-   // self.window.tintColor = 	[UIColor whiteColor];
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0xC0272A)];
-    //[[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x1EB6BC)];
-    
     //NavigationTitleBar style
     
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:

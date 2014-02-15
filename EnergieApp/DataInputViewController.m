@@ -37,7 +37,7 @@
     
     DataAccessLayer *accesLayer = [[DataAccessLayer alloc]init];
     self.managedObjectContext = [accesLayer managedObjectContext];
-  //  self.view.backgroundColor = UIColorFromRGB(0xC0272A);
+    self.view.backgroundColor = UIColorFromRGB(0xF4EEE4);
     //  self.managedObjectContext = [appDelegate managedObjectContext];
 
     

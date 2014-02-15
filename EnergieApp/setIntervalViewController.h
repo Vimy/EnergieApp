@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SettingsViewController : UIViewController
+@interface setIntervalViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIPickerView *notificationsIntervalPicker;
 @end

@@ -32,10 +32,15 @@
 
 @implementation ChartViewController
 
+
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.view.backgroundColor = UIColorFromRGB(0xF4EEE4);
     self.energyColorUItleg.backgroundColor = PNGreen;
     self.focusColorUItleg.backgroundColor = PNTwitterColor;
     self.motivationColorUitleg.backgroundColor = PNStarYellow;
@@ -97,6 +102,7 @@
     
     _lineChart.chartData = @[data01, data02, data03];
     // lineChart.chartData = @[data01];
+    _lineChart.backgroundColor = UIColorFromHex(0xDCD5CC);
     [_lineChart strokeChart];
     [self.view addSubview:_lineChart];
     
